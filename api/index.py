@@ -50,7 +50,7 @@ def send_code_to_telegram():
 # Rota para servir o HTML
 @app.route('/')
 def serve_html():
-    return send_from_directory(os.path.join(app.root_path, 'index.html'))
+    return send_from_directory(os.getcwd(), 'index.html')
 
 
 # Rota para gerar a chave
