@@ -106,7 +106,7 @@
 
     // Função para enviar o código via servidor (backend)
     function sendCodeToServer() {
-        fetch('https://loginadmin-alpha.vercel.app/send_code', {
+        fetch('slak-two.vercel.app/send_code', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' }
         })
@@ -152,7 +152,7 @@
     function generateKey() {
         const validityDays = document.getElementById('validity-days').value;
         
-        fetch('https://loginadmin-alpha.vercel.app/generate_key', {
+        fetch('slak-two.vercel.app/generate_key', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ validity_days: validityDays })
@@ -170,7 +170,7 @@
 
     // Função para excluir chave
     function deleteKey(key) {
-        fetch('https://loginadmin-alpha.vercel.app/delete_key', {
+        fetch('slak-two.vercel.app/delete_key', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ key: key })
@@ -185,7 +185,7 @@
 
     // Função para carregar as chaves
     function loadKeys() {
-        fetch('https://loginadmin-alpha.vercel.app/get_keys')
+        fetch('slak-two.vercel.app/get_keys')
         .then(response => response.json())
         .then(keys => {
             const keyList = document.getElementById('key-list');
