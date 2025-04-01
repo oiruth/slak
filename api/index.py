@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_file
 from flask_cors import CORS
 import json
 import random
@@ -60,6 +60,15 @@ def generate_key_api():
 @app.route('/get_keys', methods=['GET'])
 def get_keys():
     return jsonify(load_keys())
+
+# 🔥 Servindo o HTML corretamente na Vercel
+@app.route('/index.html')
+def serve_html():
+    html_path = os.path.join(os.path.dirname(__file__), 'index.html')
+    if os.path.exists(html_path):
+        return send_file(html_path)
+    else:
+        return jsonify({"error": "Arquivo index.html não encontrado"}), 404
 
 # Adaptador para Vercel
 def handler(event, context):
